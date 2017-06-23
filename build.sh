@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # where J2ObjC is located if not in PATH
-J2OBJCPATH=~/Downloads/j2objc
+J2OBJCPATH=~/j2objc/dist
 
 # directory where the source files are located
 SRCDIR=.
