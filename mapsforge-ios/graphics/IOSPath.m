@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         path_ = CGPathCreateMutable();
-        fillRule_ = OrgMapsforgeCoreGraphicsFillRule_NON_ZERO;
+        fillRule_ = OrgMapsforgeCoreGraphicsFillRule_Enum_NON_ZERO;
     }
     return self;
 }
@@ -47,7 +47,7 @@
     CGPathMoveToPoint(path_, NULL, x, y);
 }
 
-- (void)setFillRuleWithOrgMapsforgeCoreGraphicsFillRuleEnum:(OrgMapsforgeCoreGraphicsFillRuleEnum *)fillRule {
+- (void)setFillRuleWithOrgMapsforgeCoreGraphicsFillRule:(OrgMapsforgeCoreGraphicsFillRule*) fillRule {
     fillRule_ = [fillRule ordinal];
 }
 

@@ -32,7 +32,7 @@
     return _timestamp;
 }
 
--(BOOL)isExpired
+-(jboolean)isExpired
 {
     if (_expiration < _timestamp)
         return NO;

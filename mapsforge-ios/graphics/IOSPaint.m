@@ -29,15 +29,15 @@
     self = [super init];
     if (self) {
         color_ = 0;
-        capStyle_ = OrgMapsforgeCoreGraphicsCap_BUTT;
-        joinStyle_ = OrgMapsforgeCoreGraphicsJoin_MITER;
-        style_ = OrgMapsforgeCoreGraphicsStyle_STROKE;
+        capStyle_ = OrgMapsforgeCoreGraphicsCap_Enum_BUTT;
+        joinStyle_ = OrgMapsforgeCoreGraphicsJoin_Enum_MITER;
+        style_ = OrgMapsforgeCoreGraphicsStyle_Enum_STROKE;
         alignStyle_ = OrgMapsforgeCoreGraphicsAlign_CENTER;
         strokeLengths_ = [[NSMutableArray alloc] init];
         strokeWidth_ = 0;
         textSize_ = 0;
-        fontFamily_ = OrgMapsforgeCoreGraphicsFontFamily_DEFAULT;
-        fontStyle_ = OrgMapsforgeCoreGraphicsFontStyle_NORMAL;
+        fontFamily_ = OrgMapsforgeCoreGraphicsFontFamily_Enum_DEFAULT;
+        fontStyle_ = OrgMapsforgeCoreGraphicsFontStyle_Enum_NORMAL;
         shaderImg_ = NULL;
         shaderShift_ = CGAffineTransformIdentity;
     }
@@ -56,50 +56,50 @@
 - (NSString*)fontName {
     NSString *fontName = @"HelveticaNeue";
     
-    if ((fontFamily_ == OrgMapsforgeCoreGraphicsFontFamily_DEFAULT || fontFamily_ == OrgMapsforgeCoreGraphicsFontFamily_SANS_SERIF)) {
+    if ((fontFamily_ == OrgMapsforgeCoreGraphicsFontFamily_Enum_DEFAULT || fontFamily_ == OrgMapsforgeCoreGraphicsFontFamily_Enum_SANS_SERIF)) {
         switch (fontStyle_) {
-            case OrgMapsforgeCoreGraphicsFontStyle_BOLD:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_BOLD:
                 fontName = @"HelveticaNeue-Bold";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_BOLD_ITALIC:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_BOLD_ITALIC:
                 fontName = @"HelveticaNeue-BoldItalic";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_ITALIC:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_ITALIC:
                 fontName = @"HelveticaNeue-Italic";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_NORMAL:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_NORMAL:
             default:
                 fontName = @"HelveticaNeue";
                 break;
         }
-    } else if (fontFamily_ == OrgMapsforgeCoreGraphicsFontFamily_MONOSPACE) {
+    } else if (fontFamily_ == OrgMapsforgeCoreGraphicsFontFamily_Enum_MONOSPACE) {
         switch (fontStyle_) {
-            case OrgMapsforgeCoreGraphicsFontStyle_BOLD:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_BOLD:
                 fontName = @"CourierNewPS-BoldMT";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_BOLD_ITALIC:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_BOLD_ITALIC:
                 fontName = @"CourierNewPS-BoldItalicMT";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_ITALIC:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_ITALIC:
                 fontName = @"CourierNewPS-ItalicMT";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_NORMAL:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_NORMAL:
             default:
                 fontName = @"CourierNewPSMT";
                 break;
         }
-    } else if (fontFamily_ == OrgMapsforgeCoreGraphicsFontFamily_SERIF) {
+    } else if (fontFamily_ == OrgMapsforgeCoreGraphicsFontFamily_Enum_SERIF) {
         switch (fontStyle_) {
-            case OrgMapsforgeCoreGraphicsFontStyle_BOLD:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_BOLD:
                 fontName = @"TimesNewRomanPS-BoldMT";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_BOLD_ITALIC:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_BOLD_ITALIC:
                 fontName = @"TimesNewRomanPS-BoldItalicMT";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_ITALIC:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_ITALIC:
                 fontName = @"TimesNewRomanPS-ItalicMT";
                 break;
-            case OrgMapsforgeCoreGraphicsFontStyle_NORMAL:
+            case OrgMapsforgeCoreGraphicsFontStyle_Enum_NORMAL:
             default:
                 fontName = @"TimesNewRomanPSMT";
                 break;
@@ -152,11 +152,11 @@
     shaderShift_ = CGAffineTransformIdentity;
 }
 
-- (void)setBitmapShaderShiftWithOrgMapsforgeCoreModelPoint:(OrgMapsforgeCoreModelPoint *)origin {
+- (void)setBitmapShaderShiftWithOrgMapsforgeCoreModelPoint:(OrgMapsforgeCoreModelPoint*)origin {
     shaderShift_ = CGAffineTransformMakeTranslation(origin->x_, origin->y_);
 }
 
-- (void)setColorWithOrgMapsforgeCoreGraphicsColorEnum:(OrgMapsforgeCoreGraphicsColorEnum *)color {
+- (void)setColorWithOrgMapsforgeCoreGraphicsColor:(OrgMapsforgeCoreGraphicsColor *)color {
     jint colorInt = [IOSGraphicFactory getIntColorFromEnum:color];
     [self setColorWithInt:colorInt];
 }
@@ -173,11 +173,11 @@
     }
 }
 
-- (void)setStrokeCapWithOrgMapsforgeCoreGraphicsCapEnum:(OrgMapsforgeCoreGraphicsCapEnum *)cap {
+- (void)setStrokeCapWithOrgMapsforgeCoreGraphicsCap:(OrgMapsforgeCoreGraphicsCap*)cap {
     capStyle_ = [cap ordinal];
 }
 
-- (void)setStrokeJoinWithOrgMapsforgeCoreGraphicsJoinEnum:(OrgMapsforgeCoreGraphicsJoinEnum *)join {
+- (void)setStrokeJoinWithOrgMapsforgeCoreGraphicsJoin:(OrgMapsforgeCoreGraphicsJoin*)join {
     joinStyle_ = [join ordinal];
 }
 
@@ -185,20 +185,20 @@
     strokeWidth_ = strokeWidth;
 }
 
-- (void)setStyleWithOrgMapsforgeCoreGraphicsStyleEnum:(OrgMapsforgeCoreGraphicsStyleEnum *)style {
+- (void)setStyleWithOrgMapsforgeCoreGraphicsStyle:(OrgMapsforgeCoreGraphicsStyle* )style {
     style_ = [style ordinal];
 }
 
-- (void)setTextAlignWithOrgMapsforgeCoreGraphicsAlignEnum:(OrgMapsforgeCoreGraphicsAlignEnum *)align {
-    alignStyle_ = [align ordinal];
+- (void)setTextAlignWithOrgMapsforgeCoreGraphicsAlign:(OrgMapsforgeCoreGraphicsAlign *)align {
+    alignStyle_ = align;//[align ordinal];
 }
 
 - (void)setTextSizeWithFloat:(jfloat)textSize {
     textSize_ = textSize;
 }
 
-- (void)setTypefaceWithOrgMapsforgeCoreGraphicsFontFamilyEnum:(OrgMapsforgeCoreGraphicsFontFamilyEnum *)fontFamily
-                    withOrgMapsforgeCoreGraphicsFontStyleEnum:(OrgMapsforgeCoreGraphicsFontStyleEnum *)fontStyle {
+- (void)setTypefaceWithOrgMapsforgeCoreGraphicsFontFamily:(OrgMapsforgeCoreGraphicsFontFamily*)fontFamily
+                    withOrgMapsforgeCoreGraphicsFontStyle:(OrgMapsforgeCoreGraphicsFontStyle *)fontStyle {
     fontFamily_ = [fontFamily ordinal];
     fontStyle_ = [fontStyle ordinal];
 }

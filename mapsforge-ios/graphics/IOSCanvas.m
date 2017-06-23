@@ -188,7 +188,7 @@ withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paint {
         
         CGContextSetLineWidth(context_, ipaint->strokeWidth_);
 
-        if (ipaint->style_ == OrgMapsforgeCoreGraphicsStyle_FILL) {
+        if (ipaint->style_ == OrgMapsforgeCoreGraphicsStyle_Enum_FILL) {
             CGContextSetFillColorWithColor(context_, colorRef);
             CGContextFillEllipseInRect(context_, r);
         } else {
@@ -255,13 +255,13 @@ withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paint {
         
         CGLineJoin lineJoin;
         switch (ipaint->joinStyle_) {
-            case OrgMapsforgeCoreGraphicsJoin_BEVEL:
+            case OrgMapsforgeCoreGraphicsJoin_Enum_BEVEL:
                 lineJoin = kCGLineJoinBevel;
                 break;
-            case OrgMapsforgeCoreGraphicsJoin_MITER:
+            case OrgMapsforgeCoreGraphicsJoin_Enum_MITER:
                 lineJoin = kCGLineJoinMiter;
                 break;
-            case OrgMapsforgeCoreGraphicsJoin_ROUND:
+            case OrgMapsforgeCoreGraphicsJoin_Enum_ROUND:
             default:
                 lineJoin = kCGLineJoinRound;
                 break;
@@ -269,13 +269,13 @@ withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paint {
         
         CGLineCap lineCap;
         switch (ipaint->capStyle_) {
-            case OrgMapsforgeCoreGraphicsCap_BUTT:
+            case OrgMapsforgeCoreGraphicsCap_Enum_BUTT:
                 lineCap = kCGLineCapButt;
                 break;
-            case OrgMapsforgeCoreGraphicsCap_SQUARE:
+            case OrgMapsforgeCoreGraphicsCap_Enum_SQUARE:
                 lineCap = kCGLineCapSquare;
                 break;
-            case OrgMapsforgeCoreGraphicsCap_ROUND:
+            case OrgMapsforgeCoreGraphicsCap_Enum_ROUND:
             default:
                 lineCap = kCGLineCapRound;
                 break;
@@ -334,13 +334,13 @@ withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paint {
             CGContextAddPath(context_, ipath->path_);
             
             CGPathDrawingMode pathDrawMode = (CGPathDrawingMode)kCGPathStroke;
-            if (ipaint->style_ == OrgMapsforgeCoreGraphicsStyle_FILL) {
-                if (ipath->fillRule_ == OrgMapsforgeCoreGraphicsFillRule_EVEN_ODD) {
+            if (ipaint->style_ == OrgMapsforgeCoreGraphicsStyle_Enum_FILL) {
+                if (ipath->fillRule_ == OrgMapsforgeCoreGraphicsFillRule_Enum_EVEN_ODD) {
                     pathDrawMode = (CGPathDrawingMode)kCGPathEOFill;
-                } else if (ipath->fillRule_ == OrgMapsforgeCoreGraphicsFillRule_NON_ZERO) {
+                } else if (ipath->fillRule_ == OrgMapsforgeCoreGraphicsFillRule_Enum_NON_ZERO) {
                     pathDrawMode = (CGPathDrawingMode)kCGPathFill;
                 }
-            } else if (ipaint->style_ == OrgMapsforgeCoreGraphicsStyle_STROKE) {
+            } else if (ipaint->style_ == OrgMapsforgeCoreGraphicsStyle_Enum_STROKE) {
                 pathDrawMode = (CGPathDrawingMode)kCGPathStroke;
             }
             CGContextDrawPath(context_, pathDrawMode);
@@ -452,7 +452,7 @@ withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paint {
     [self drawTextWithNSString:text withInt:x1 withInt:y1 withAngle:theta withOrgMapsforgeCoreGraphicsPaint:paint];
 }
 
-- (void)fillColorWithOrgMapsforgeCoreGraphicsColorEnum:(OrgMapsforgeCoreGraphicsColorEnum *)color {
+- (void)fillColorWithOrgMapsforgeCoreGraphicsColor:(OrgMapsforgeCoreGraphicsColor *)color {
     jint colorInt = [IOSGraphicFactory getIntColorFromEnum:color];
     [self fillColorWithInt:colorInt];
 }

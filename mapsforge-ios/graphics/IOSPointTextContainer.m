@@ -33,7 +33,7 @@
                  withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintFront
                  withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintBack
     withOrgMapsforgeCoreMapelementsSymbolContainer:(OrgMapsforgeCoreMapelementsSymbolContainer *)symbolContainer
-          withOrgMapsforgeCoreGraphicsPositionEnum:(OrgMapsforgeCoreGraphicsPositionEnum *)position
+          withOrgMapsforgeCoreGraphicsPositionEnum:(OrgMapsforgeCoreGraphicsPosition *)position
                                            withInt:(jint)maxTextWidth {
     //self = [super initWithOrgMapsforgeCoreModelPoint:point withInt:priority withNSString:text withOrgMapsforgeCoreGraphicsPaint:paintFront withOrgMapsforgeCoreGraphicsPaint:paintBack withOrgMapsforgeCoreMapelementsSymbolContainer:symbolContainer withOrgMapsforgeCoreGraphicsPositionEnum:position withInt:maxTextWidth];
     //if (self) {
@@ -102,9 +102,9 @@
         
         jint left = 0, top = 0, right = 1, bottom = 1;
         switch ([position ordinal]) {
-            case OrgMapsforgeCoreGraphicsPosition_AUTO:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_AUTO:
             default:
-            case OrgMapsforgeCoreGraphicsPosition_CENTER:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_CENTER:
             {
                 left = -boxWidth / 2.f;
                 top = -boxHeight / 2.f;
@@ -112,7 +112,7 @@
                 bottom = boxHeight / 2.f;
                 break;
             }
-            case OrgMapsforgeCoreGraphicsPosition_BELOW:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_BELOW:
             {
                 left = -boxWidth / 2.f;
                 top = 0;
@@ -120,7 +120,7 @@
                 bottom = boxHeight;
                 break;
             }
-            case OrgMapsforgeCoreGraphicsPosition_BELOW_LEFT:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_BELOW_LEFT:
             {
                 left = -boxWidth;
                 top = 0;
@@ -128,7 +128,7 @@
                 bottom = boxHeight;
                 break;
             }
-            case OrgMapsforgeCoreGraphicsPosition_BELOW_RIGHT:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_BELOW_RIGHT:
             {
                 left = 0;
                 top = 0;
@@ -136,7 +136,7 @@
                 bottom = boxHeight;
                 break;
             }
-            case OrgMapsforgeCoreGraphicsPosition_ABOVE_LEFT:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_ABOVE_LEFT:
             {
                 left = -boxWidth;
                 top = -boxHeight;
@@ -144,7 +144,7 @@
                 bottom = 0;
                 break;
             }
-            case OrgMapsforgeCoreGraphicsPosition_ABOVE_RIGHT:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_ABOVE_RIGHT:
             {
                 left = 0;
                 top = -boxHeight;
@@ -152,7 +152,7 @@
                 bottom = 0;
                 break;
             }
-            case OrgMapsforgeCoreGraphicsPosition_LEFT:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_LEFT:
             {
                 left = -boxWidth;
                 top = -boxHeight / 2.f;
@@ -160,7 +160,7 @@
                 bottom = boxHeight / 2.f;
                 break;
             }
-            case OrgMapsforgeCoreGraphicsPosition_RIGHT:
+            case OrgMapsforgeCoreGraphicsPosition_Enum_RIGHT:
             {
                 left = 0;
                 top = -boxHeight / 2.f;
@@ -176,23 +176,23 @@
 }
 
 - (id)initWithOrgMapsforgeCoreModelPoint:(OrgMapsforgeCoreModelPoint *)point
-           withOrgMapsforgeCoreGraphicsDisplayEnum:(OrgMapsforgeCoreGraphicsDisplayEnum *)display
+           withOrgMapsforgeCoreGraphicsDisplay:(OrgMapsforgeCoreGraphicsDisplay *)display
                                            withInt:(jint)priority
                                       withNSString:(NSString *)text
                  withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintFront
                  withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintBack
     withOrgMapsforgeCoreMapelementsSymbolContainer:(OrgMapsforgeCoreMapelementsSymbolContainer *)symbolContainer
-          withOrgMapsforgeCoreGraphicsPositionEnum:(OrgMapsforgeCoreGraphicsPositionEnum *)position
+          withOrgMapsforgeCoreGraphicsPosition:(OrgMapsforgeCoreGraphicsPosition *)position
                                            withInt:(jint)maxTextWidth
 {
     self = [super initWithOrgMapsforgeCoreModelPoint:(OrgMapsforgeCoreModelPoint *)point
-             withOrgMapsforgeCoreGraphicsDisplayEnum:(OrgMapsforgeCoreGraphicsDisplayEnum *)display
+             withOrgMapsforgeCoreGraphicsDisplay:(OrgMapsforgeCoreGraphicsDisplay *)display
                                              withInt:(jint)priority
                                         withNSString:(NSString *)text
                    withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintFront
                    withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintBack
       withOrgMapsforgeCoreMapelementsSymbolContainer:(OrgMapsforgeCoreMapelementsSymbolContainer *)symbolContainer
-            withOrgMapsforgeCoreGraphicsPositionEnum:(OrgMapsforgeCoreGraphicsPositionEnum *)position
+            withOrgMapsforgeCoreGraphicsPosition:(OrgMapsforgeCoreGraphicsPosition *)position
                                              withInt:(jint)maxTextWidth];
     if (self) {
         [self withOrgMapsforgeCoreModelPoint:point withInt:priority withNSString:text withOrgMapsforgeCoreGraphicsPaint:paintFront withOrgMapsforgeCoreGraphicsPaint:paintBack withOrgMapsforgeCoreMapelementsSymbolContainer:symbolContainer withOrgMapsforgeCoreGraphicsPositionEnum:position withInt:maxTextWidth];

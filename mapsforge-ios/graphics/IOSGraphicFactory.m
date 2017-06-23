@@ -72,24 +72,24 @@ IOSGraphicFactory* __singletonIOSGraphicFactory = nil;
     return [[[IOSCanvas alloc] init] autorelease];
 }
 
-+ (jint)getIntColorFromEnum:(OrgMapsforgeCoreGraphicsColorEnum *)color {
++ (jint)getIntColorFromEnum:(OrgMapsforgeCoreGraphicsColor *)color {
     switch ([color ordinal]) {
-        case OrgMapsforgeCoreGraphicsColor_BLACK:
+        case OrgMapsforgeCoreGraphicsColor_Enum_BLACK:
             return [IOSGraphicFactory getColorFromA:0xff R:0 G:0 B:0];
             break;
-        case OrgMapsforgeCoreGraphicsColor_BLUE:
+        case OrgMapsforgeCoreGraphicsColor_Enum_BLUE:
             return [IOSGraphicFactory getColorFromA:0xff R:0 G:0 B:0xff];
             break;
-        case OrgMapsforgeCoreGraphicsColor_GREEN:
+        case OrgMapsforgeCoreGraphicsColor_Enum_GREEN:
             return [IOSGraphicFactory getColorFromA:0xff R:0 G:0xff B:0];
             break;
-        case OrgMapsforgeCoreGraphicsColor_RED:
+        case OrgMapsforgeCoreGraphicsColor_Enum_RED:
             return [IOSGraphicFactory getColorFromA:0xff R:0xff G:0 B:0];
             break;
-        case OrgMapsforgeCoreGraphicsColor_TRANSPARENT:
+        case OrgMapsforgeCoreGraphicsColor_Enum_TRANSPARENT:
             return [IOSGraphicFactory getColorFromA:0 R:0 G:0 B:0];
             break;
-        case OrgMapsforgeCoreGraphicsColor_WHITE:
+        case OrgMapsforgeCoreGraphicsColor_Enum_WHITE:
             return [IOSGraphicFactory getColorFromA:0xff R:0xff G:0xff B:0xff];
             break;
             
@@ -100,7 +100,7 @@ IOSGraphicFactory* __singletonIOSGraphicFactory = nil;
     return 0;
 }
 
-- (jint)createColorWithOrgMapsforgeCoreGraphicsColorEnum:(OrgMapsforgeCoreGraphicsColorEnum *)color {
+- (jint)createColorWithOrgMapsforgeCoreGraphicsColor:(OrgMapsforgeCoreGraphicsColor*)color {
     return [IOSGraphicFactory getIntColorFromEnum:color];
 }
 
@@ -131,27 +131,49 @@ IOSGraphicFactory* __singletonIOSGraphicFactory = nil;
     return [[[IOSPath alloc] init] autorelease];
 }
 
-- (OrgMapsforgeCoreMapelementsPointTextContainer *)createPointTextContainerWithOrgMapsforgeCoreModelPoint:(OrgMapsforgeCoreModelPoint *)xy
-                                                                                                  withInt:(jint)priority
-                                                                                             withNSString:(NSString *)text
-                                                                        withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintFront
-                                                                        withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintBack
-                                                           withOrgMapsforgeCoreMapelementsSymbolContainer:(OrgMapsforgeCoreMapelementsSymbolContainer *)symbolContainer
-                                                                 withOrgMapsforgeCoreGraphicsPositionEnum:(OrgMapsforgeCoreGraphicsPositionEnum *)position
-                                                                                                  withInt:(jint)maxTextWidth {
-    return [[[IOSPointTextContainer alloc] initWithOrgMapsforgeCoreModelPoint:xy withInt:priority withNSString:text withOrgMapsforgeCoreGraphicsPaint:paintFront withOrgMapsforgeCoreGraphicsPaint:paintBack withOrgMapsforgeCoreMapelementsSymbolContainer:symbolContainer withOrgMapsforgeCoreGraphicsPositionEnum:position withInt:maxTextWidth] autorelease];
-}
+
+//- (OrgMapsforgeCoreMapelementsPointTextContainer *)createPointTextContainerWithOrgMapsforgeCoreModelPoint:(OrgMapsforgeCoreModelPoint *)xy
+//                                                                                                  withInt:(jint)priority
+//                                                                                             withNSString:(NSString *)text
+//                                                                        withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintFront
+//                                                                        withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintBack
+//                                                           withOrgMapsforgeCoreMapelementsSymbolContainer:(OrgMapsforgeCoreMapelementsSymbolContainer *)symbolContainer
+//                                                                 withOrgMapsforgeCoreGraphicsPositionEnum:(OrgMapsforgeCoreGraphicsPosition*)position
+//                                                                                                  withInt:(jint)maxTextWidth
+//{
+//    
+//    return [[[IOSPointTextContainer alloc] initWithOrgMapsforgeCoreModelPoint:xy withOrgMapsforgeCoreGraphicsDisplay:nil withInt:priority withNSString:text withOrgMapsforgeCoreGraphicsPaint:paintFront withOrgMapsforgeCoreGraphicsPaint: paintBack withOrgMapsforgeCoreMapelementsSymbolContainer:symbolContainer withOrgMapsforgeCoreGraphicsPosition:position withInt:maxTextWidth] autorelease];
+//    
+//    
+//    
+//    
+////    return [[[IOSPointTextContainer alloc] initWithOrgMapsforgeCoreModelPoint:xy withInt:priority withNSString:text withOrgMapsforgeCoreGraphicsPaint:paintFront withOrgMapsforgeCoreGraphicsPaint:paintBack withOrgMapsforgeCoreMapelementsSymbolContainer:symbolContainer withOrgMapsforgeCoreGraphicsPositionm:position withInt:maxTextWidth] autorelease];
+//}
 
 - (OrgMapsforgeCoreMapelementsPointTextContainer *)createPointTextContainerWithOrgMapsforgeCoreModelPoint:(OrgMapsforgeCoreModelPoint *)xy
-                                                                  withOrgMapsforgeCoreGraphicsDisplayEnum:(OrgMapsforgeCoreGraphicsDisplayEnum *)display
+                                                                      withOrgMapsforgeCoreGraphicsDisplay:(OrgMapsforgeCoreGraphicsDisplay *)display
                                                                                                   withInt:(jint)priority
                                                                                              withNSString:(NSString *)text
                                                                         withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintFront
                                                                         withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintBack
                                                            withOrgMapsforgeCoreMapelementsSymbolContainer:(OrgMapsforgeCoreMapelementsSymbolContainer *)symbolContainer
-                                                                 withOrgMapsforgeCoreGraphicsPositionEnum:(OrgMapsforgeCoreGraphicsPositionEnum *)position
-                                                                                                  withInt:(jint)maxTextWidth {
-    return [[[IOSPointTextContainer alloc] initWithOrgMapsforgeCoreModelPoint:xy withOrgMapsforgeCoreGraphicsDisplayEnum:display withInt:priority withNSString:text withOrgMapsforgeCoreGraphicsPaint:paintFront withOrgMapsforgeCoreGraphicsPaint:paintBack withOrgMapsforgeCoreMapelementsSymbolContainer:symbolContainer withOrgMapsforgeCoreGraphicsPositionEnum:position withInt:maxTextWidth] autorelease];
+                                                                     withOrgMapsforgeCoreGraphicsPosition:(OrgMapsforgeCoreGraphicsPosition *)position
+                                                                                                  withInt:(jint)maxTextWidth
+
+//- (OrgMapsforgeCoreMapelementsPointTextContainer *)createPointTextContainerWithOrgMapsforgeCoreModelPoint:(OrgMapsforgeCoreModelPoint *)xy
+//                                                                  withOrgMapsforgeCoreGraphicsDisplay:(OrgMapsforgeCoreGraphicsDisplay*)display
+//                                                                                                  withInt:(jint)priority
+//                                                                                             withNSString:(NSString *)text
+//                                                                        withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintFront
+//                                                                        withOrgMapsforgeCoreGraphicsPaint:(id<OrgMapsforgeCoreGraphicsPaint>)paintBack
+//                                                           withOrgMapsforgeCoreMapelementsSymbolContainer:(OrgMapsforgeCoreMapelementsSymbolContainer *)symbolContainer
+//                                                                 withOrgMapsforgeCoreGraphicsPositionEnum:(OrgMapsforgeCoreGraphicsPosition*)position
+//                                                                                                  withInt:(jint)maxTextWidth {
+{
+    return [[[IOSPointTextContainer alloc] initWithOrgMapsforgeCoreModelPoint:xy withOrgMapsforgeCoreGraphicsDisplay:display withInt:priority withNSString:text withOrgMapsforgeCoreGraphicsPaint:paintFront withOrgMapsforgeCoreGraphicsPaint:paintBack withOrgMapsforgeCoreMapelementsSymbolContainer:symbolContainer withOrgMapsforgeCoreGraphicsPosition:position withInt:maxTextWidth] autorelease];
+    
+    
+//    return [[[IOSPointTextContainer alloc] initWithOrgMapsforgeCoreModelPoint:xy withOrgMapsforgeCoreGraphicsDisplayEnum:display withInt:priority withNSString:text withOrgMapsforgeCoreGraphicsPaint:paintFront withOrgMapsforgeCoreGraphicsPaint:paintBack withOrgMapsforgeCoreMapelementsSymbolContainer:symbolContainer withOrgMapsforgeCoreGraphicsPositionEnum:position withInt:maxTextWidth] autorelease];
 }
 
 - (id<OrgMapsforgeCoreGraphicsResourceBitmap>)createResourceBitmapWithJavaIoInputStream:(JavaIoInputStream *)inputStream
